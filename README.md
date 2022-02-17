@@ -1,4 +1,4 @@
-# 《代码分析与自动化重构》
+# 《码分析与自动化重构》
 
 
 PS：根据过去编写 Modernizing 相关的开源工具里，编写的《代码分析与自动化重构》指南。
@@ -657,7 +657,7 @@ digraph G {
 
 对应转换后的图形如下所示（因为是测试代码中有多个相同的 Controller，所以是双份箭头）：
 
- ![](/processor/blog/images?file_name=2022-02-12T03:56:27.101Z.png)
+ ![](images/2022-02-12T03:56:27.101Z.png)
 
 对于代码量较大的工程来说，生成的 SVG 就会比较大，以致于可能会在浏览器上渲染许久。为此，常见的一种解决方案就是：添加大量的 filter 函数、参数，以有选择性的过滤。这也造成了另外一个问题，工具的学习成本和试命令的成本比较高。有一个很好的例子就是，虽然我是 Coca 的作者，但是很多功能，我现在已经不记得了。
 
@@ -703,7 +703,7 @@ Car --> Human
 
 这样一来，就可以配合 IDEA 的 PlantUML 插件进行可视化了：
 
- ![](/processor/blog/images?file_name=2022-02-12T01:48:59.454Z.png)
+ ![](images/2022-02-12T01:48:59.454Z.png)
 
 Modeling 的依赖构建会比 SQLing 复杂一些，在构建模型的时候，还要从 `xxId` 中尝试分析出是否存在这样的类，以构建出对应的依赖关系 —— 当然，这种是基于编码模式的分析，有些人的代码写的是 `id` 没有前缀，这就分析不出来了。
 
@@ -722,7 +722,7 @@ Modeling 的依赖构建会比 SQLing 复杂一些，在构建模型的时候，
 
 其中，最过于坑人的，要数 Manifest.MF 存在多个不同的版本的问题。在使用正则无力的情况下，最后只能用 Antlr 来写解析器了。有意思的是，OSGi 生成的 Manifest.MF 里，必须有 `Import-Package` 和 `Export-Package`，便可以从中生成项目的依赖信息。就这么找了 Apache 的 OSGi 项目，run 了一下，写了个 demo，it works：
 
- ![](/processor/blog/images?file_name=2022-02-12T06:46:17.034Z.png)
+ ![](images/2022-02-12T06:46:17.034Z.png)
 
 然后，来到客户现场，一试，嘿，傻眼了，客户有几百个 bundle。怎么看清包之间的关系，怎么看清哪个 bundle 被依赖最多？所以，让 D3 来干活吧。
 
@@ -730,11 +730,11 @@ Modeling 的依赖构建会比 SQLing 复杂一些，在构建模型的时候，
 
 在有了依赖关系之后，只需要生成一个 JSON 文件，就可以给 D3.js 使用了。剩下要做的就是打包 Web 应用，以便于在客户的 Windows 电脑上运行 —— 这就体现出了 Golang 的跨平台优势。在采用有了 GitHub Action 的多平台构建之后，Rust 也可以实现同样的效果。接着，迅速实现了个 demo，然后拿 Eclipse 的 OSGi 框架 Equinox 跑了一下，这图估计也 hold 不住，几百个 bundle：
 
- ![](/processor/blog/images?file_name=2022-02-12T06:58:02.989Z.png)
+ ![](images/2022-02-12T06:58:02.989Z.png)
 
 于是，又从 D3.js 的 Gallery 里继续拿个图了测试一下：
 
- ![](/processor/blog/images?file_name=2022-02-12T07:00:04.392Z.png)
+ ![](images/2022-02-12T07:00:04.392Z.png)
 
 效果比上面好一点，但是依旧不理想。然后，我就一如即往的弃坑了 —— 在 OSGi 技术越来越难见到的时代，投精力开发工具，显得非常不值得。和 D3.js 的简单 demo 相比，我们在 ArchGuard 设计的、基于 AntV G6 的可视化来说，它显得更加的好用。
 
@@ -744,7 +744,7 @@ Merry 可视化的最后 demo 见：<https://modernizing.github.io/merry/demo>
 
 上面的可交互性仅限于当前时期，但是历史上的变化有时候往往更重要。于是，在设计效能分析工具 [Coco](https://github.com/inherd/coco) 时，我们做提分析 Git 的提交历史，从中发现历史上的高频变更。如下是 [Nginx](https://inherd.org/cases/nginx/) 的示例，可以播放，然后查看变化：
 
- ![](/processor/blog/images?file_name=2022-02-12T07:10:44.460Z.png)
+ ![](images/2022-02-12T07:10:44.460Z.png)
 
 对于本身就是增量变更的 Git 来说，分析 Git 的日志，就能得到上面的结果。但是，对于代码来说，要分析模型上的增量变更，还是稍微有一点麻烦。如果有哪个小伙伴有空，可以去构建这样的功能。
 
@@ -752,7 +752,7 @@ Merry 可视化的最后 demo 见：<https://modernizing.github.io/merry/demo>
 
 几年前，在阅读《Your Code as a Crime Scene》一书之后，我便一直想构建一个 Code City，只是我一直看不到有效的使用场景。在设计 Coco 和 Coca 的时候，虽然图形是 2D 的，表现力是有限的，但是多数时候是够用的 —— 受客户开发机的性能影响。所以，去年在元世界又开始火了之后，结合了几年前在 TW 国内构建的第一个 VR 机器人，并写了 Code City 的 demo：<https://github.com/modernizing/codecity>。
 
- ![](/processor/blog/images?file_name=2022-02-12T07:17:04.491Z.png)
+ ![](images/2022-02-12T07:17:04.491Z.png)
 
 当然，这还只是一个玩具。只要一打开 Oculus Quest 2，我就沉迷在 Beat Saber 中*。*But the way，我构建了我一直想构建的 Code City demo。
 
@@ -886,7 +886,7 @@ func (j *RemoveUnusedImportApp) Refactoring(resultNodes []models2.JFullIdentifie
 
 只要编译通过了，就说明我们的重构是好的。第一次写 Goland 写了 Coca，所以代码写得比较一般了，不过测试覆盖率有 90%，也算是方便大家对这个代码库重构了。
 
-![](/processor/blog/images?file_name=2022-02-13T07:05:08.298Z.png)
+![](images/2022-02-13T07:05:08.298Z.png)
 
 后续，我用这个项目来向客户证明，嘿，我们的代码都是有测试的，你不需要 100%，只需要 90% 即可（手动狗头）。
 
