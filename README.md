@@ -749,7 +749,7 @@ Merry 可视化的最后 demo 见：<https://modernizing.github.io/merry/demo>
 
 ## 面向风口的可视化
 
-几年前，在阅读《Your Code as a Crime Scene》一书之后，我便一直想构建一个 Code City，只是我一直看不到有效的使用场景。在设计 Coco 和 Coca 的时候，虽然图形是 2D 的，表现力是有限的，但是多数时候是够用的 —— 受客户开发机的性能影响。所以，去年在元世界又开始火了之后，结合了几年前在 TW 国内构建的第一个 VR 机器人，并写了 Code City 的 demo：<https://github.com/modernizing/codecity>。
+几年前，在阅读《Your Code as a Crime Scene》一书之后，我便一直想构建一个 Code City，只是我一直看不到有效的使用场景。在设计 Coco 和 Coca 的时候，虽然图形是 2D 的，表现力是有限的，但是多数时候是够用的 —— 受客户开发机的性能影响。所以，去年在元世界又开始火了之后，结合了几年前在 Thoughtworks 国内构建的第一个 VR 机器人，并写了 Code City 的 demo：<https://github.com/modernizing/codecity>。
 
  ![](images/2022-02-12T07:17:04.491Z.png)
 
