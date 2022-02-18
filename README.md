@@ -32,7 +32,7 @@ PS：根据过去编写 Modernizing 相关的开源工具里，编写的《代�
 * **可视化驱动**。快速生成项目的分析结果，并展示出来给开发人员了解现状，还有编写 PPT。
 * **必要的交互性**。用于在重构的过程中，寻找合适的切入点。 
 * **定制化开发**。
-  * 特定坏味道。不同的开发团队会有不同的坏味道，有些坏味道是无法由 Sonarqube 这样的工具识别的。
+  * 特定坏味道。不同的开发团队会有不同的坏味道，有些坏味道是无法由 SonarQube 这样的工具识别的。
   * 自动化重构。基于已知的坏味道，对应的代码位置信息，对代码进行自动化重构。
 * **适当的语法精准度**。更高的语法精准度，意味着更高的开发成本，需要有针对地平衡它们。
 * **多平台**。我们用的是 macOS，而多数时候，客户使用的是 Windows。
@@ -43,14 +43,14 @@ PS：根据过去编写 Modernizing 相关的开源工具里，编写的《代�
 
 ### **语法分析**
 
- 对代码进行语法分析，生成特定的语言的数据结构。常用的工具有：Antlr、Ctags、TreeSitter、Doxygen、CodeQuery 等。一个大致的对比（拍脑袋订的）如下表所示：
+ 对代码进行语法分析，生成特定的语言的数据结构。常用的工具有：Antlr、Ctags、Tree-sitter、Doxygen、CodeQuery 等。一个大致的对比（拍脑袋订的）如下表所示：
 
 | 工具 | 精确度量化 | 开发难度 | 跨语言学习成本 | 添加新语言成本 | 可自动化重构 |
 |----|----|----|----|----|----|
 | 语言编译器 | 完美 | 低 | 高 | - | Yes |
 | Antlr | 极高 | 中 | 中 | 中 | Yes |
 | Ctags | 中 | 低 | 低 | 高 | Yes（成本高） |
-| TreeSitter | 高 | 高 | 中 | 高 | Yes（成本高，S） |
+| Tree-sitter | 高 | 高 | 中 | 高 | Yes（成本高，S） |
 | Doxygen | 中 | 低 | 低 | 高 | No |
 | CodeQuery | 极高 | 中 | 中 | 高 | Yes（成本高）|
 
@@ -58,7 +58,7 @@ PS：根据过去编写 Modernizing 相关的开源工具里，编写的《代�
 
 通常来说，我们会出于以下的一些情况，来对遗留系统进行可视化：
 
-* **数值化**。如针对于特定的 smell 进行自动化重构，类似于 Sonarqube，常见的模式和原则源自于《重构》一书。在 Coca 里，还引入了在一些论文里看到了**测试的 bad smell**，诸如于没有断言的测试等。
+* **数值化**。如针对于特定的 smell 进行自动化重构，类似于 SonarQube，常见的模式和原则源自于《重构》一书。在 Coca 里，还引入了在一些论文里看到了**测试的 bad smell**，诸如于没有断言的测试等。
 * **可视化依赖**。如针对于代码中的类、包等的依赖情况进行可视化，主要用于分析分层架构等。常用的工具有：PlantUML、Graphviz、D3.js、Echarts 等。
 * **代码属性可视化。**如针对于文件的修改频率、大小等属性进行可视化，可以获取诸如于单位时间内的文件变化频率。一个文件经常修改，还大量被引用，那说明它是一个不稳定的类、文件，除了业务变化，最有可能就是设计不合理。
 * **其它**。
@@ -80,7 +80,7 @@ PS：根据过去编写 Modernizing 相关的开源工具里，编写的《代�
 
 在 [Modernizing](https://github.com/modernizing) 里，我们集合了先前开发的一系列工具。并创建了：[awesome-modernization](https://github.com/modernizing/awesome-modernization) 用于对其它的一系列相关的工具进行收集。
 
-在 Moderning 里，针对于单个编程语言的工具有：
+在 Modernizing 里，针对于单个编程语言的工具有：
 
 * 针对于 Java 语言的系统重构、系统迁移和系统分析的工具：[Coca](https://github.com/modernizing/coca)，Go 语言，GitHub stars：691。Coca 是一个“全功能”的重构工具，基于 Antlr 进行语法分析的，除了常规的可视化、调用分析，还可以进行自动化重构。Coca 一名的由来是：对标新哥写的 [Tequila](https://github.com/modernizing/tequila) —— 龙舌兰酒 vs 快乐水。
 * 针对于 CSS/LESS/CSS 的分析和自动化重构工具：[Lemonj](https://github.com/modernizing/lemonj)，TypeScript 语言，GitHub stars：128。当时设计的主要目的是：用来对 CSS 中的颜色进行提取，基于 Antlr 的语法树分析，可以用于进行自动化的重构。
@@ -93,7 +93,7 @@ PS：根据过去编写 Modernizing 相关的开源工具里，编写的《代�
 * 基于 Antlr 的多语言的语言模型分析工具：[Chapi](https://github.com/inherd/chapi)，Kotlin 语言。其设计的初衷是用于生成 Coca 相同的数据结构，以接入更多的可视化工具。在语法分析上，采用的是 Antlr 进行分析。
 * 基于 Doxygen 的多语言分析和可视化工具：Go mod 版本的新哥的 Tequila。其中，还有一系列的迷之代码，需要重构掉。
 * 基于 Ctags 的多语言模型分析和可视化工具：[Modeling](https://github.com/modernizing/modeling)，Rust 语言。分析源码，并生成基于模型的可视化依赖。
-* 基于 TreeSitter 的多语言架构守护工具：[Guarding](https://github.com/modernizing/guarding)，Rust 语言。通过自制的 DSL，来对系统架构进行守护。
+* 基于 Tree-sitter 的多语言架构守护工具：[Guarding](https://github.com/modernizing/guarding)，Rust 语言。通过自制的 DSL，来对系统架构进行守护。
 * 一个秘密进行中的，针对于某公司新语言的架构守护工具：Menshen，Rust + 某个新语言。
 
 除此，还有一个在 Inherd 开源小组下开源的：[Coco](https://github.com/inherd/coco)，它主要是通过代码的物理属性：修改频率 + 目录 + 行数来分析系统的工具。以及现在紧锣密鼓开源中的 ArchGuard。
@@ -111,7 +111,7 @@ PS：根据过去编写 Modernizing 相关的开源工具里，编写的《代�
 | 目标 | 语法信息级别 | 可选 工具 |
 |----|----|----|
 | HTTP API | @注解、参数、类、方法 | 语法分析器（语言自带、三方、Antlr） |
-| 领域模型 | 类/结构体、成员等 | 根据不同精度，可以考虑 Ctags、TreeSitter等 |
+| 领域模型 | 类/结构体、成员等 | 根据不同精度，可以考虑 Ctags、Tree-sitter等 |
 | 包、类依赖关系 | 引用、函数调用等。 | Doxygen、 语法分析器等 |
 | 调用链 | 全部信息 | 语法分析器（语言自带、三方、Antlr） |
 
@@ -205,11 +205,11 @@ name	src/coco_struct.rs	/^    pub name: String,$/;\"	field	line:22	language:Rust
 1. 版本冲突，如 macOS 环境自带了一个 ctags，需要 override，或者自定义路径。
 2. 下载 ctags。特别是如果客户是在内网环境时，又会比较麻烦。
 
-所以，TreeSitter 成了一个更好的选择：平衡。
+所以，Tree-sitter 成了一个更好的选择：平衡。
 
-### TreeSitter
+### Tree-sitter
 
-Tree-sitter 是一个解析器生成工具和增量解析库。 它可以为源文件构建具体的语法树，并在编辑源文件时有效地更新语法树。这个工具最初是为 Atom 编辑器设计的。TreeSitter 内置了一个 S  表达式，可以快速构建出我们想要的模型。如下是一个 C# 代码：
+Tree-sitter 是一个解析器生成工具和增量解析库。 它可以为源文件构建具体的语法树，并在编辑源文件时有效地更新语法树。这个工具最初是为 Atom 编辑器设计的。Tree-sitter 内置了一个 S  表达式，可以快速构建出我们想要的模型。如下是一个 C# 代码：
 
 ```csharp
 using Microsoft.CodeAnalysis.CSharp;
@@ -233,7 +233,7 @@ public class SharpingClassVisitor {
 )
 ```
 
-我们在 Guarding 中使用了 TreeSitter 来实现，示例：\[Guarding Ident\](<https://github.com/modernizing/guarding/tree/master/guarding_ident/src/identify>)，与 Ctags 相比，没有这个环境依赖，会比较清爽。
+我们在 Guarding 中使用了 Tree-sitter 来实现，示例：\[Guarding Ident\](<https://github.com/modernizing/guarding/tree/master/guarding_ident/src/identify>)，与 Ctags 相比，没有这个环境依赖，会比较清爽。
 
 其在线 Background：<https://tree-sitter.github.io/tree-sitter/playground> 。
 
@@ -395,7 +395,7 @@ func (s *JavaCallListener) EnterClassDeclaration(ctx *ClassDeclarationContext) {
 
 ## 1.0 版本：更多的工具，更多的模型
 
-在发布了 Coca 之后，从 GitHub 几百的 star 和对应的迁移指南 [Migration](https://github.com/phodal/migration) 2.8k 的 star 来看，这个领域的需求还是相当的旺盛。
+在发布了 Coca 之后，从 GitHub 几百的 stars 和对应的迁移指南 [Migration](https://github.com/phodal/migration) 2.8k 的 stars 来看，这个领域的需求还是相当的旺盛。
 
 所以，我们开发了更多的功能，也一步步陷入了「人类创造的三个系统」的陷阱中。
 
@@ -515,7 +515,7 @@ pub struct CodeFunction {
 }
 ```
 
-在这个版本里，使用的是 TreeSitter 没有函数调用，所以显得非常简单 —— 只是记录基本的类、函数信息等，又是一个非常简单的初始化版本。
+在这个版本里，使用的是 Tree-sitter 没有函数调用，所以显得非常简单 —— 只是记录基本的类、函数信息等，又是一个非常简单的初始化版本。
 
 ## 3.0 进行中的向下抽象：MIR <=> AST
 
@@ -902,11 +902,11 @@ move.c.ImportForB -> move.d.ImportForB
 
 ## 让重构消失：构建前置的架构守护
 
-重构，从理论上来说，是一种事后补救的方式。我们应该尽量避免 bad smell 的出现，从 CI 上的 Sonarqube，到 Git Hooks 的 pre check，再到 IDE 里的 Checkstyle，我们无一不是在构建**架构适应度函数**，以让系统的架构逐步演进到合适的状态。
+重构，从理论上来说，是一种事后补救的方式。我们应该尽量避免 bad smell 的出现，从 CI 上的 SonarQube，到 Git Hooks 的 pre check，再到 IDE 里的 Checkstyle，我们无一不是在构建**架构适应度函数**，以让系统的架构逐步演进到合适的状态。
 
 在我们有了代码模型，又有了语法分析能力之后，我们就能构建出一个跨越任何语言的**架构守护工具**，类似于 [ArchUnit](https://github.com/TNG/ArchUnitNET)。好的架构模式、设计模式，只有变成代码，可测试、可度量，它才有发挥的空间。通过前面的一系列 Antlr 的语法分析基础，很容易就能具备编写一套新的 DSL，再配上老马的《领域特定语言》作为指导思想，《ANTLR 4权威指南》作为实践手册，我们就是一个“代码专家”。
 
-于是呢，我按照这个想法，开了一个坑：[Guarding](https://github.com/modernizing/guarding)  一个用于 Java、JavaScript、Rust、Golang 等语言的架构守护工具。结合 TreeSitter 进行目标代码的模型构建，借助于易于理解的 DSL，来编写守护规则。在设计上参考了 ArchUnit 的语法，采用了 Rust 里的 pest 作为解析器 —— 主要是一年前 Rust 的 Antlr 支持不好（完整的语法：[guarding.pest](https://github.com/modernizing/guarding/blob/master/guarding_parser/src/guarding.pest)）：
+于是呢，我按照这个想法，开了一个坑：[Guarding](https://github.com/modernizing/guarding)  一个用于 Java、JavaScript、Rust、Golang 等语言的架构守护工具。结合 Tree-sitter 进行目标代码的模型构建，借助于易于理解的 DSL，来编写守护规则。在设计上参考了 ArchUnit 的语法，采用了 Rust 里的 pest 作为解析器 —— 主要是一年前 Rust 的 Antlr 支持不好（完整的语法：[guarding.pest](https://github.com/modernizing/guarding/blob/master/guarding_parser/src/guarding.pest)）：
 
 ```javascript
 normal_rule = {
@@ -946,7 +946,7 @@ package(".")::file.len should > 50;
 
 代码中的 `::` 可以换成 `→` 表示，都是在 `use_symbol` 中声明的，自己写的语法嘛，怎么开心就这么写。最后，代码是可以 work 的，也没有枉费我看了许久的 ArchUnit 源码。
 
-顺带一提，先前提到的 TreeSitter 的 S 表达式还挺好玩的，有空应该实现一个：
+顺带一提，先前提到的 Tree-sitter 的 S 表达式还挺好玩的，有空应该实现一个：
 
 ```javascript
 (using_directive
