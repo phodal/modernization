@@ -94,7 +94,6 @@ PS：根据过去编写 Modernizing 相关的开源工具里，编写的《代�
 * 基于 Doxygen 的多语言分析和可视化工具：Go mod 版本的新哥的 Tequila。其中，还有一系列的迷之代码，需要重构掉。
 * 基于 Ctags 的多语言模型分析和可视化工具：[Modeling](https://github.com/modernizing/modeling)，Rust 语言。分析源码，并生成基于模型的可视化依赖。
 * 基于 Tree-sitter 的多语言架构守护工具：[Guarding](https://github.com/modernizing/guarding)，Rust 语言。通过自制的 DSL，来对系统架构进行守护。
-* 一个秘密进行中的，针对于某公司新语言的架构守护工具：Menshen，Rust + 某个新语言。
 
 除此，还有一个在 Inherd 开源小组下开源的：[Coco](https://github.com/inherd/coco)，它主要是通过代码的物理属性：修改频率 + 目录 + 行数来分析系统的工具。以及现在紧锣密鼓开源中的 ArchGuard。
 
