@@ -234,7 +234,7 @@ public class SharpingClassVisitor {
 
 我们在 Guarding 中使用了 Tree-sitter 来实现，示例：\[Guarding Ident\](<https://github.com/modernizing/guarding/tree/master/guarding_ident/src/identify>)，与 Ctags 相比，没有这个环境依赖，会比较清爽。
 
-其在线 Background：<https://tree-sitter.github.io/tree-sitter/playground> 。
+其在线 Playground：<https://tree-sitter.github.io/tree-sitter/playground> 。
 
 ## 其它生成工具
 
