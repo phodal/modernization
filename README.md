@@ -208,7 +208,7 @@ name	src/coco_struct.rs	/^    pub name: String,$/;\"	field	line:22	language:Rust
 
 ### Tree-sitter
 
-Tree-sitter 是一个解析器生成工具和增量解析库。 它可以为源文件构建具体的语法树，并在编辑源文件时有效地更新语法树。这个工具最初是为 Atom 编辑器设计的。Tree-sitter 内置了一个 S  表达式，可以快速构建出我们想要的模型。如下是一个 C# 代码：
+Tree-sitter 是一个解析器生成工具和增量解析库。 它可以为源文件构建具体的语法树，并在编辑源文件时有效地更新语法树。这个工具最初是为 Atom 编辑器设计的。Tree-sitter 内置了一个 [S  表达式](https://zh.wikipedia.org/zh-cn/S-%E8%A1%A8%E8%BE%BE%E5%BC%8F)，可以快速构建出我们想要的模型。如下是一个 C# 代码：
 
 ```csharp
 using Microsoft.CodeAnalysis.CSharp;
